@@ -40,10 +40,10 @@ public class EmployeeRepository implements IRepository<Employee>{
     @Override
     public void save(Employee employee) throws SQLException {
         String sql;
-        Boolean actualiza = employee.getId() != null && employee.getId() > 0;
-        if (actualiza) {
+        boolean actualiza = employee.getId() != null && employee.getId() > 0;
+        if (actualiza)
             sql = "UPDATE employees SET first_name = ?,pa_surname=?,ma_surname=?,email=?,salary=? WHERE id = ?";
-        }else {
+        else {
             sql = "INSERT INTO employees(first_name,pa_surname,ma_surname,email,salary) VALUES (?, ?, ?,?,?)";
         }
         try(PreparedStatement stm = getConnection().prepareStatement(sql)){

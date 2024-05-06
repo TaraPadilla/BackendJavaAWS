@@ -60,7 +60,6 @@ public class UIMenu {
 
             switch (cont){
                 case "Si":
-                    response = 1;
                     break;
                 case "No":
                     response = 0;
