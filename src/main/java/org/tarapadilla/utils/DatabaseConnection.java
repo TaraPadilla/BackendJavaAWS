@@ -33,12 +33,15 @@ public class DatabaseConnection {
             pool.setMinIdle(5);
             pool.setMaxIdle(10);
             pool.setMaxTotal(10);
+            //No funciona el autocommit false con pool
+            pool.getConnection().setAutoCommit(false);
         }
         return pool;
     }
 
     public static Connection getConnection() throws SQLException {
-        return getInstanceWithPool().getConnection();
+        //return getInstanceWithPool().getConnection(); Para Pool
+        return getInstanceWithCon();
     }
 
     public static void saveTransactions() throws SQLException {
