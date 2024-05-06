@@ -42,11 +42,13 @@ public class DatabaseConnection {
     }
 
     public static void saveTransactions() throws SQLException {
-        if (con == null) {
-            throw new SQLException("Connection is null");
-        } else
+        if (con != null) {
+            con.commit();
+        } else if( pool != null)
         {
-          con.commit();
+          pool.getConnection().commit();
+        } else {
+            throw new SQLException("Connection is null");
         }
     }
 }
