@@ -7,9 +7,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
-    private static String url = "jdbc:mysql://database-1.c7mkyc08y2io.us-east-1.rds.amazonaws.com/project";
-    private static String user = "admin";
-    private static String password = "Bec.2024*";
+    private final static String url = "jdbc:mysql://database-1.c7mkyc08y2io.us-east-1.rds.amazonaws.com/project";
+    private final static String user = "admin";
+    private final static String password = "Bec.2024*";
     private static Connection con;
     private static BasicDataSource pool;
 

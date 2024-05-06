@@ -1,7 +1,5 @@
 package org.tarapadilla.Repository;
 
-import org.tarapadilla.model.Employee;
-
 import java.sql.SQLException;
 import java.util.List;
 

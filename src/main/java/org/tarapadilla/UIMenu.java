@@ -4,7 +4,6 @@ import org.tarapadilla.Repository.EmployeeRepository;
 import org.tarapadilla.Repository.IRepository;
 import org.tarapadilla.model.Employee;
 import org.tarapadilla.utils.DatabaseConnection;
-import org.w3c.dom.ls.LSOutput;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -27,7 +26,7 @@ public class UIMenu {
                     break;
                 case 2:
                     System.out.println("Ingrese el Id del empleado a actualizar");
-                    Integer id = sc.nextInt();
+                    int id = sc.nextInt();
                     emp = repository.getById(id);
                     System.out.println(emp.toString());
                     break;
@@ -71,7 +70,7 @@ public class UIMenu {
     }
 
     private static Integer showPrincipal() {
-        Integer Opcion;
+        int Opcion;
         System.out.println("1. Insertar Empleado");
         System.out.println("2. Actualizar Empleado");
         System.out.println("3. Eliminar Empleado");

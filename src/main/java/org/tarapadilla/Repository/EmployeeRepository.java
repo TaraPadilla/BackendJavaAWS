@@ -16,7 +16,7 @@ public class EmployeeRepository implements IRepository<Employee>{
     public List<Employee> getAll() throws SQLException {
         List<Employee> employees = new ArrayList<>();
         try(Statement stmt = getConnection().createStatement();
-            ResultSet myRes = stmt.executeQuery("SELECT * FROM employees");)
+            ResultSet myRes = stmt.executeQuery("SELECT * FROM employees"))
         { while (myRes.next()) {
            employees.add(createEmployee(myRes));
         }
