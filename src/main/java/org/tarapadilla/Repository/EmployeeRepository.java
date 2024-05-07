@@ -51,13 +51,13 @@ public class EmployeeRepository implements IRepository<Employee>{
     public void save(Employee employee) throws SQLException {
          String sql;
         boolean actualiza = employee.getId() != null && employee.getId() > 0;
-        em.getTransaction().begin();
+        //em.getTransaction().begin();
         if (!actualiza) {
             em.persist(employee);
         }else {
             em.merge(employee);
         }
-        em.getTransaction().commit();
+        //em.getTransaction().commit();
         /*
         if (actualiza)
             sql = "UPDATE employees SET first_name = ?,pa_surname=?,ma_surname=?,email=?,salary=? WHERE id = ?";
@@ -77,14 +77,19 @@ public class EmployeeRepository implements IRepository<Employee>{
 
     @Override
     public void delete(Employee emp) throws SQLException {
-        em.getTransaction().begin();
+        //em.getTransaction().begin();
         em.remove(emp);
-        em.getTransaction().commit();
+        //em.getTransaction().commit();
         /*String sql = "DELETE FROM employees WHERE id = ?";
         try(PreparedStatement statement = getConnection().prepareStatement(sql)){
             statement.setInt(1,emp.getId());
             statement.executeUpdate();
         }*/
+    }
+
+    @Override
+    public void saveAll() throws SQLException {
+      UtilEntity.saveChanges(em);
     }
 
     private static Employee createEmployee(ResultSet myRes) throws SQLException {

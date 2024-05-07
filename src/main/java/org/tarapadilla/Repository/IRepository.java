@@ -8,4 +8,5 @@ public interface IRepository<T> {
     T getById(Integer id) throws SQLException;
     void save(T t) throws SQLException;
     void delete(T t) throws SQLException;
+    abstract void saveAll() throws SQLException;
 }

@@ -14,6 +14,19 @@ public class UtilEntity {
     }
 
     public static EntityManager getEntityManager() {
-        return entityManagerFactory.createEntityManager();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        return entityManager;
+    }
+
+    public static void saveChanges(EntityManager entityManager) {
+        try {
+            if (entityManager.getTransaction().isActive()) {
+            entityManager.getTransaction().commit();
+            }
+        } catch (Exception e) {
+            entityManager.getTransaction().rollback();
+            throw new RuntimeException(e);
+        }
     }
 }

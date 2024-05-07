@@ -56,7 +56,7 @@ public class UIMenu {
                 case 0:
                     System.out.println("Guardando cambios");
                     System.out.println("_______");
-                    DatabaseConnection.saveTransactions();
+                    repository.saveAll();
                     System.out.println("Transacciones guardadas");
                     break;
                 default:
