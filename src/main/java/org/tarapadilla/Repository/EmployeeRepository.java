@@ -12,9 +12,10 @@ public class EmployeeRepository implements IRepository<Employee>{
 
     static EntityManager em = UtilEntity.getEntityManager();
 
+    /* Solo para JDBC
     private Connection getConnection() throws SQLException {
         return DatabaseConnection.getConnection();
-    }
+    } */
 
     @Override
     public List<Employee> getAll() throws SQLException {
