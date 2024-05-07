@@ -8,11 +8,6 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        EntityManager em = UtilEntity.getEntityManager();
-        List<Employee> employees = em.createQuery("select e from Employee e", Employee.class).getResultList();
-        System.out.println("---- Listado completo ---");
-        employees.forEach(System.out::println);
-
-        //UIMenu.showMenu();
+        UIMenu.showMenu();
     }
 }

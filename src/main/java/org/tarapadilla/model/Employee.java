@@ -5,9 +5,8 @@ import org.hibernate.boot.registry.selector.spi.StrategyCreator;
 @Entity
 @Table (name = "employees")
 public class Employee {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     @Column(name = "first_name")
     private String first_name;
     @Column(name = "pa_surname")
@@ -17,7 +16,7 @@ public class Employee {
     @Column
     private String email;
     @Column
-    float salary;
+    private float salary;
 
     public Employee() {
     }

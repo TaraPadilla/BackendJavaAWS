@@ -1,11 +1,14 @@
 package org.tarapadilla;
 
+import jakarta.persistence.EntityManager;
 import org.tarapadilla.Repository.EmployeeRepository;
 import org.tarapadilla.Repository.IRepository;
 import org.tarapadilla.model.Employee;
 import org.tarapadilla.utils.DatabaseConnection;
+import org.tarapadilla.utils.UtilEntity;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 public class UIMenu {
@@ -21,14 +24,18 @@ public class UIMenu {
         do {
             switch (showPrincipal()){
                 case 1:
-                    System.out.println("Ingrese los datos del empleado");
                     repository.save(capturaDatos());
                     break;
                 case 2:
                     System.out.println("Ingrese el Id del empleado a actualizar");
                     int id = sc.nextInt();
                     emp = repository.getById(id);
-                    System.out.println(emp.toString());
+                    System.out.println("Se actualizará a:" + emp.toString());
+                    emp.setEmail("cambia@gmail.com");
+                    repository.save(emp);
+                    //System.out.println(emp.toString());
+                    //emp = repository.getById(id);
+                    //System.out.println(emp.toString());
                     break;
                 case 3:
                     System.out.println("Ingrese el Id del empleado a eliminar");
@@ -43,6 +50,7 @@ public class UIMenu {
                     System.out.println(emp.toString());
                     break;
                 case 5:
+                    System.out.println("---- Listado completo ---");
                     repository.getAll().forEach(System.out::println);
                     break;
                 case 0:
@@ -81,14 +89,15 @@ public class UIMenu {
     }
 
     public static Employee capturaDatos(){
+        System.out.println("Ingrese los datos del empleado");
         System.out.println("Digita primer nombre: ");
-        emp.setFirst_name(sc.nextLine());
+        emp.setFirst_name(sc.next());
         System.out.println("Digita primer apellido: ");
-        emp.setPa_surname(sc.nextLine());
+        emp.setPa_surname(sc.next());
         System.out.println("Digita segundo apellido: ");
-        emp.setMa_surname(sc.nextLine());
+        emp.setMa_surname(sc.next());
         System.out.println("Digite el mail: ");
-        emp.setEmail(sc.nextLine());
+        emp.setEmail(sc.next());
         System.out.println("Digite el salario: ");
         emp.setSalary(sc.nextFloat());
         return emp;
