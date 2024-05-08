@@ -2,7 +2,12 @@ package org.tarapadilla;
 import okhttp3.*;
 
 import java.io.IOException;
+import jakarta.persistence.EntityManager;
+import org.tarapadilla.model.Employee;
+import org.tarapadilla.utils.UtilEntity;
+
 import java.sql.*;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws SQLException, IOException {

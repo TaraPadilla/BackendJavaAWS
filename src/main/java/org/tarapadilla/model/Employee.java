@@ -1,12 +1,22 @@
 package org.tarapadilla.model;
+import jakarta.persistence.*;
+import org.hibernate.boot.registry.selector.spi.StrategyCreator;
 
+@Entity
+@Table (name = "employees")
 public class Employee {
-    private Integer id;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(name = "first_name")
     private String first_name;
+    @Column(name = "pa_surname")
     private String pa_surname;
+    @Column
     private String ma_surname;
+    @Column
     private String email;
-    float salary;
+    @Column
+    private float salary;
 
     public Employee() {
     }
