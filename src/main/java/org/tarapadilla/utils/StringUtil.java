@@ -9,6 +9,5 @@ public class StringUtil {
             result += palabra;
      }
         return result;
-
     }
 }
