@@ -1,5 +1,6 @@
 package org.tarapadilla.utils;
 
+
 public class StringUtil {
 
     public static String repeat(String palabra, int numero){
@@ -9,5 +10,11 @@ public class StringUtil {
             result += palabra;
      }
         return result;
+    }
+
+    public static boolean isEmpty(String cadena){
+
+        if (cadena ==null || cadena.trim().length()==0) return true;
+        else return false;
     }
 }
